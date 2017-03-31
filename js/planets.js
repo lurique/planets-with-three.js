@@ -27,7 +27,7 @@ var Three = Three || {};
 		radius: 0,
 		segments: 0,
 		rotation: 0,
-		planet: '',
+		sphere: '',
 		clouds: '',
 		particles: '',
 
@@ -70,7 +70,28 @@ var Three = Three || {};
 			planetEarth: function() {
 				var self = Three.Planets;
 
-				alert('Function is working');
+				self.radius = 0.5;
+				self.segments = 14;
+				self.rotation = 6;
+
+				self.sphere = createSphere(self.radius, self.segments);
+
+				function createSphere(radius, segments) {
+					var loader = self.loader;
+
+					loader.load(
+						'http://www.shadedrelief.com/natural3/images/earth_no_clouds.jpg',
+
+						function(texture) {
+							new THREE.Mesh(
+								new THREE.SphereGeometry(self.radius, self.segments, self.segments),
+								new THREE.MeshPhongMaterial({
+									map: texture
+								})
+							);
+						}					
+					);
+				}
 			}
 		}
 
