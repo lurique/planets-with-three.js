@@ -1,5 +1,5 @@
 /*
-*	Planet Earth in THREE.js
+* Planets in THREE.js
 *
 * Author: Lucas Henrique
 * Author URI: https://github.com/lurique
